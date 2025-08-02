@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/main.JPG" type="image/x-icon">
+    <title>Celebrating Thảo Vi's Graduation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff9fa;
+            overflow-x: hidden;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            opacity: 0.7;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-100px) rotate(5deg);
+            }
+        }
+        
+        .gradient-text {
+            background: linear-gradient(45deg, #ff7eb3, #ff758c, #ff7eb3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 117, 140, 0.2);
+        }
+        
+        .carousel {
+            scroll-behavior: smooth;
+        }
+        
+        .carousel::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .social-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .photo-frame {
+            border: 15px solid white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sparkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: white;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+            opacity: 0;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+    <!-- Confetti and Balloons -->
+    <div id="confetti-container"></div>
+    <div id="balloon-container"></div>
+    
+    <!-- Header Section -->
+    <header class="relative bg-gradient-to-br from-pink-50 to-blue-50 py-12 px-6 md:px-12 lg:px-24">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="heading-font text-4xl md:text-5xl lg:text-6xl font-bold mb-6 gradient-text">
+                Congratulations Thảo Vi!
+            </h1>
+            <p class="text-lg md:text-xl text-gray-700 mb-8 max-w-3xl mx-auto">
+                With great joy and pride, we invite you to celebrate the graduation of Thảo Vi from the Academy of Finance
+            </p>
+            
+            <div class="relative inline-block mb-12">
+                <div class="photo-frame rounded-full overflow-hidden relative">
+                    <img src="/images/main.JPG" 
+                         alt="Thảo Vi" 
+                         class="w-48 h-48 md:w-56 md:h-56 object-cover rounded-full">
+                    <div id="sparkle-container"></div>
+                </div>
+                <div class="absolute -inset-4 border-2 border-pink-200 rounded-full animate-pulse"></div>
+            </div>
+            
+            <div class="bg-white rounded-xl p-6 md:p-8 shadow-lg max-w-2xl mx-auto">
+                <h2 class="heading-font text-2xl md:text-3xl font-semibold text-pink-600 mb-4">
+                    Graduation Ceremony
+                </h2>
+                <p class="text-gray-700 mb-2">
+                    <i class="fas fa-calendar-day text-pink-500 mr-2"></i>
+                    <span class="font-medium">August 10, 2025</span>
+                </p>
+                <p class="text-gray-700 mb-2">
+                    <i class="fas fa-clock text-pink-500 mr-2"></i>
+                    <span class="font-medium">9-11 AM</span>
+                </p>
+                <p class="text-gray-700">
+                    <i class="fas fa-map-marker-alt text-pink-500 mr-2"></i>
+                    <span class="font-medium">Academy of Finance, Hanoi</span>
+                </p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Carousel Section -->
+    <section class="py-16 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+                My <span class="gradient-text">Journeys</span>
+            </h2>
+            
+            <div class="relative">
+                <div class="carousel flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scroll-smooth" id="carousel">
+                    <!-- Card 1 -->
+                    <div class="card-hover flex-none w-full md:w-4/5 lg:w-2/3 snap-center bg-gradient-to-r from-pink-50 to-blue-50 rounded-2xl overflow-hidden shadow-md transition-all duration-300">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 aspect-[3/5]">
+                                <img src="/images/card3.png" 
+                                    alt="Graduation" 
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                                <blockquote class="text-gray-700 italic mb-4">
+                                    "Thank you, Academy of Finance, for shaping not only my knowledge but also my confidence and dreams."
+                                </blockquote>
+                                <p class="text-pink-600 font-medium">- Me</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="card-hover flex-none w-full md:w-4/5 lg:w-2/3 snap-center bg-gradient-to-r from-blue-50 to-pink-50 rounded-2xl overflow-hidden shadow-md transition-all duration-300">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 aspect-[3/5]">
+                                <img src="/images/card1.png" 
+                                    alt="Graduation" 
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                                <blockquote class="text-gray-700 italic mb-4">
+                                    "I’m forever grateful to the mentors, friends, and memories I’ve gained throughout this incredible journey."
+                                </blockquote>
+                                <p class="text-pink-600 font-medium">- Still me</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 3 -->
+                    <div class="card-hover flex-none w-full md:w-4/5 lg:w-2/3 snap-center bg-gradient-to-r from-pink-50 to-blue-50 rounded-2xl overflow-hidden shadow-md transition-all duration-300">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 aspect-[3/5]">
+                                <img src="/images/card4.png" 
+                                    alt="Graduation" 
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                                <blockquote class="text-gray-700 italic mb-4">
+                                    "From sleepless nights to unforgettable milestones — thank you, AOF, for every part of the ride."
+                                </blockquote>
+                                <p class="text-pink-600 font-medium">- Also me</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="card-hover flex-none w-full md:w-4/5 lg:w-2/3 snap-center bg-gradient-to-r from-pink-50 to-blue-50 rounded-2xl overflow-hidden shadow-md transition-all duration-300">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 aspect-[3/5]">
+                                <img src="/images/card2.png" 
+                                    alt="Graduation" 
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                                <blockquote class="text-gray-700 italic mb-4">
+                                    "To every lesson, challenge, and smile along the way — thank you for being part of my university life."
+                                </blockquote>
+                                <p class="text-pink-600 font-medium">- Me again</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="card-hover flex-none w-full md:w-4/5 lg:w-2/3 snap-center bg-gradient-to-r from-pink-50 to-blue-50 rounded-2xl overflow-hidden shadow-md transition-all duration-300">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="w-full md:w-1/2 aspect-[3/5]">
+                                <img src="/images/card5.png" 
+                                    alt="Graduation" 
+                                    class="w-full h-full object-cover">
+                            </div>
+                            <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
+                                <blockquote class="text-gray-700 italic mb-4">
+                                    "As I turn the page to a new chapter, I carry with me the gratitude and spirit of the Academy of Finance."
+                                </blockquote>
+                                <p class="text-pink-600 font-medium">- And finally me</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-pink-100 transition-colors duration-200" onclick="scrollCarousel(-1)">
+                    <i class="fas fa-chevron-left text-pink-500"></i>
+                </button>
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-pink-100 transition-colors duration-200" onclick="scrollCarousel(1)">
+                    <i class="fas fa-chevron-right text-pink-500"></i>
+                </button>
+            </div>
+            
+            <div class="flex justify-center mt-6 space-x-2">
+                <button class="w-3 h-3 rounded-full bg-pink-300" onclick="goToSlide(0)"></button>
+                <button class="w-3 h-3 rounded-full bg-pink-300" onclick="goToSlide(1)"></button>
+                <button class="w-3 h-3 rounded-full bg-pink-300" onclick="goToSlide(2)"></button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Map Section -->
+    <section class="py-16 px-6 md:px-12 lg:px-24 bg-gradient-to-br from-pink-50 to-blue-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800">
+                Ceremony <span class="gradient-text">Location</span>
+            </h2>
+            
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg">
+                <div class="aspect-w-16 aspect-h-9 w-full h-96">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8854.243862427393!2d105.77799632932532!3d21.08260656582948!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313455161a0885c5%3A0xfb1e9b5ccce51444!2zSOG7jWMgVmnhu4duIFTDoGkgQ2jDrW5oIC0gQ8ahIHPhu58gbeG7m2k!5e0!3m2!1sen!2s!4v1754029320414!5m2!1sen!2s" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy"
+                            class="w-full h-full"></iframe>
+                </div>
+                <div class="p-6 md:p-8">
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Academy of Finance</h3>
+                    <p class="text-gray-600 mb-4">Số 58 Lê Văn Hiến, Phường Đức Thắng, Quận Bắc Từ Liêm, Hà Nội</p>
+                    <a href="https://maps.app.goo.gl/Lnap93Hp9qS95nvK6" 
+                       target="_blank" 
+                       class="inline-flex items-center px-6 py-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-colors duration-200">
+                        <i class="fas fa-directions mr-2"></i>
+                        Get Directions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Share Section -->
+    <section class="py-16 px-6 md:px-12 lg:px-24 bg-white">
+        <div class="max-w-6xl mx-auto text-center">
+            <h2 class="heading-font text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                Share This <span class="gradient-text">Celebration</span>
+            </h2>
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+                Help spread the joy by sharing this special moment with friends and family
+            </p>
+            
+            <div class="flex justify-center space-x-4 md:space-x-6">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://vixinh.github.io/vixinh/" class="social-btn w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center text-2xl transition-transform duration-200">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://www.facebook.com/dialog/send?link=https://vixinh.github.io/vixinh/" class="social-btn w-14 h-14 rounded-full bg-blue-400 text-white flex items-center justify-center text-2xl transition-transform duration-200">
+                    <i class="fab fa-facebook-messenger"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?url=https://vixinh.github.io/vixinh/" class="social-btn w-14 h-14 rounded-full bg-blue-500 text-white flex items-center justify-center text-2xl transition-transform duration-200">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20graduation%20page:%20https://vixinh.github.io/vixinh/" class="social-btn w-14 h-14 rounded-full bg-green-500 text-white flex items-center justify-center text-2xl transition-transform duration-200">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="" class="social-btn w-14 h-14 rounded-full bg-yellow-500 text-white flex items-center justify-center text-2xl transition-transform duration-200">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 px-6 text-center">
+        <p class="text-gray-600 mb-4">
+            Celebrating the graduation of Thao Vi from the Academy of Finance
+        </p>
+        <p class="text-gray-500 text-sm">
+            August 10, 2025 • 10:00 AM • Hanoi, Vietnam
+        </p>
+        <div class="mt-6 flex justify-center space-x-4">
+            <a href="#" class="text-pink-500 hover:text-pink-600">
+                <i class="fas fa-heart"></i>
+            </a>
+            <a href="#" class="text-pink-500 hover:text-pink-600">
+                <i class="fas fa-share-alt"></i>
+            </a>
+        </div>
+    </footer>
+    
+    <script>
+        // Create confetti
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff7eb3', '#ff758c', '#7afcff', '#feff9c'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.top = -10 + 'px';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = Math.random() * 8 + 5 + 'px';
+                confetti.style.height = Math.random() * 8 + 5 + 'px';
+                confetti.style.animationDuration = Math.random() * 3 + 2 + 's';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(confetti);
+            }
+        }
+        
+        // Create balloons
+        function createBalloons() {
+            const container = document.getElementById('balloon-container');
+            const colors = ['#ff7eb3', '#ff758c', '#7afcff', '#feff9c'];
+            
+            for (let i = 0; i < 8; i++) {
+                const balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = Math.random() * 100 + 'vw';
+                balloon.style.top = Math.random() * 100 + 'vh';
+                balloon.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                balloon.style.width = Math.random() * 30 + 20 + 'px';
+                balloon.style.height = Math.random() * 40 + 30 + 'px';
+                balloon.style.animationDuration = Math.random() * 10 + 10 + 's';
+                balloon.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(balloon);
+            }
+        }
+        
+        // Create sparkles
+        function createSparkles() {
+            const container = document.getElementById('sparkle-container');
+            
+            for (let i = 0; i < 20; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.left = Math.random() * 100 + '%';
+                sparkle.style.top = Math.random() * 100 + '%';
+                sparkle.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(sparkle);
+            }
+        }
+        
+        // Carousel functionality
+        let currentSlide = 0;
+        const carousel = document.getElementById('carousel');
+        const slides = document.querySelectorAll('.carousel > div');
+        
+        function scrollCarousel(direction) {
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            carousel.scrollTo({
+                left: slides[currentSlide].offsetLeft,
+                behavior: 'smooth'
+            });
+            updateIndicators();
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            carousel.scrollTo({
+                left: slides[currentSlide].offsetLeft,
+                behavior: 'smooth'
+            });
+            updateIndicators();
+        }
+        
+        function updateIndicators() {
+            const indicators = document.querySelectorAll('.flex.justify-center.mt-6.space-x-2 button');
+            indicators.forEach((indicator, index) => {
+                if (index === currentSlide) {
+                    indicator.classList.add('bg-pink-500');
+                    indicator.classList.remove('bg-pink-300');
+                } else {
+                    indicator.classList.add('bg-pink-300');
+                    indicator.classList.remove('bg-pink-500');
+                }
+            });
+        }
+        
+        // Auto-scroll carousel
+        setInterval(() => {
+            scrollCarousel(1);
+        }, 5000);
+        
+        // Initialize
+        window.onload = function() {
+            createConfetti();
+            createBalloons();
+            createSparkles();
+            updateIndicators();
+        };
+    </script>
+</body>
+</html>
